@@ -1,0 +1,22 @@
+name: "my-website"
+navbar:
+  title: "Frutos da Costa"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Mapa"
+      href: mapa.html
+    - text: "Lista de espécies"
+      href: species.html 
+    - text: "Pesquisa na escola"
+      href: rede_interativa.html
+    - text: "Download"
+      href: dados.html 
+    - text: "macacos-prego"
+      href: macacos.html 
+    - text: "Organizadores"
+      href: Organizadores.html
+    - text: "Cronograma"
+      href: cronograma.html
+    - text: "About"
+      href: about.html
