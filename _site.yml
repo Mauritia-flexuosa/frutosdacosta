@@ -12,6 +12,8 @@ navbar:
       href: rede_interativa.html
     - text: "Download"
       href: dados.html 
+    - text: "Governança local"
+      href: manifestação.html
     - text: "macacos-prego"
       href: macacos.html 
     - text: "Organizadores"
