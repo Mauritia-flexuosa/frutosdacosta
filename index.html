@@ -13,7 +13,7 @@
 
 <title>Mapeamento das árvores frutíferas da Costa da Lagoa</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -232,7 +240,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -255,6 +263,9 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="dados.html">Download</a>
+</li>
+<li>
+  <a href="manifestação.html">Governança local</a>
 </li>
 <li>
   <a href="macacos.html">macacos-prego</a>
@@ -280,19 +291,26 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Mapeamento das árvores frutíferas da Costa da Lagoa</h1>
+<h1 class="title toc-ignore">Mapeamento das árvores frutíferas da Costa
+da Lagoa</h1>
 
 </div>
 
 
 <div id="sobre-o-projeto-frutos-da-costa" class="section level2">
 <h2><strong>Sobre o projeto Frutos da Costa</strong> 🍌 🥑 🍊</h2>
-<div id="o-objetivo-deste-projeto-é-mapear-as-árvores-frutíferas-do-caminho-histórico-da-comunidade-da-costa-da-lagoa-em-florianópolis-com-a-participação-da-comunidade." class="section level4">
-<h4>O <strong>objetivo</strong> deste projeto é mapear as árvores frutíferas do Caminho histórico da comunidade da Costa da Lagoa, em Florianópolis, com a participação da comunidade.</h4>
+<div
+id="o-objetivo-deste-projeto-é-mapear-as-árvores-frutíferas-do-caminho-histórico-da-comunidade-da-costa-da-lagoa-em-florianópolis-com-a-participação-da-comunidade."
+class="section level4">
+<h4>O <strong>objetivo</strong> deste projeto é mapear as árvores
+frutíferas do Caminho histórico da comunidade da Costa da Lagoa, em
+Florianópolis, com a participação da comunidade.</h4>
 </div>
 <font color="green">
 <h3>
-Que sirva para alimentar quem tem fome e de motivação e fonte de sementes para que as pessoas plantem mais árvores <strong>nativas</strong>.
+Que sirva para alimentar quem tem fome e de motivação e fonte de
+sementes para que as pessoas plantem mais árvores
+<strong>nativas</strong>.
 </h3>
 <p></font></p>
 <div>
@@ -301,21 +319,97 @@ Que sirva para alimentar quem tem fome e de motivação e fonte de sementes para
 <em>Arte de divulgação feita pela Mari.</em>
 </p>
 </div>
-<p>A <strong>comunidade está estabelecida</strong> ao longo da margem oeste da Lagoa da Conceição. Foi reconhecida como comunidade tradicional de pescadores artesanais pela Lei Ordinária 9633/2014, da Prefeitura Municipal de Florianópolis. A comunidade da Costa da Lagoa é conhecida pela beleza cênica de suas paisagens, pela marcante cultura tradicional dos pescadores artesanais, benzedeiras e rendeiras e pelo não-convencional acesso à comunidade que se dá por meio de embarcações ou pelo caminho histórico em meio às belezas naturais da Mata Atlântica.</p>
-<p>O Caminho histórico foi tombado pelo Decreto Municipal 247/86. O caminho, também chamado de ‘trilha’, liga a comunidade da Costa da Lagoa ao Canto dos Araças, ambos às margens da Lagoa da Conceição. Nos últimos anos, com a crescente especulação imobiliária combinada com o aumento da atividade turística e com a carência de fiscalização, o caminho histórico vem se deteriorando rapidamente.</p>
-<p>No decorrer do Caminho Histórico da Costa da Lagoa, pode-se perceber ruinas e construções antigas, como o engenho do ponto 8 ou a famosa casa da Dona Loquinha. O percurso é dentro de uma bela mata cheia de espécies de plantas e de animais. Muitas aves podem ser vistas e/ou ouvidas como o <a href="https://www.wikiaves.com.br/wiki/pica-pau-de-cabeca-amarela">pica-pau-de-cabeça-amarela</a>, o <a href="https://www.wikiaves.com.br/wiki/aracua-escamoso">Aracuã-escamoso</a>, os <a href="https://www.wikiaves.com.br/wiki/tucano-de-bico-preto">tucanos</a> (de bico verde e preto), o <a href="https://www.wikiaves.com.br/wiki/sai-azul">saí-azul</a>, dentre outras muitas. Também encontramos o <a href="https://pt.wikipedia.org/wiki/Macaco-prego-preto">macaco-prego</a> que é um primata de porte médio, muito inteligente, cujo aumento populacional tem afetado negativamente os grupos humanos do entorno. Mais raramente, podem ser vistos <a href="https://pt.wikipedia.org/wiki/Graxaim-do-mato">graxains</a>, <a href="https://pt.wikipedia.org/wiki/Capivara">capivaras</a>, <a href="https://pt.wikipedia.org/wiki/Paca">pacas</a>, <a href="https://pt.wikipedia.org/wiki/Gamb%C3%A1-de-orelha-preta">gambás-de-orelha-preta</a> e os <a href="https://pt.wikipedia.org/wiki/Tamandu%C3%A1-mirim">tamanduás-mirim</a>. Existem também outros animais vertebrados bonitinhos como os <a href="https://pt.wikipedia.org/wiki/Teiú">lagartos teiú</a> e diversas serpentes.</p>
-<p><strong>A ideia de mapear as árvores frutiferas surgiu</strong> de uma conversa com o amigo Euler Erse sobre sustentabilidade e segurança alimentar. Durante um <em>brain storming</em> surgiu uma pergunta fundamental que foi moldando a ideia conforme avançávamos no exercício da dialética. A pergunta primeira foi <em>“quais as árvores frutíferas que alimentam o homem existem na região da Costa da Lagoa?”</em>. Fizemos uma lista de espécies que já vimos aqui ou que sabíamos que existiam na região. Então, nos propomos a fazer um levantamento das espécies para termos certeza de quais e quantas eram. Para aumentar a resolução e qualidade da informação, resolvemos georreferenciar e depois mapear os dados.</p>
-<p>A partir daí, pensamos na <strong>importância deste levantamento</strong> e percebemos que ele poderia servir de justificativa para a <a href="https://pt.wikipedia.org/wiki/Conserva%C3%A7%C3%A3o_da_natureza">conservação da natureza</a> na região. Este tipo de informação ainda é útil para grupos de coletores de sementes, estudantes, gestores ambientais e poderia ser base para monitoramento da biodiversidade e para recuperação de áreas degradadas. Além disso, torna disponível à população informações sobre os frutos que existem na região. Este projeto ainda está alinhado com o <a href="https://odsbrasil.gov.br/objetivo/objetivo?n=2">ODS 2</a> (i.e. fome zero e agricultura sustentável) e o <a href="https://odsbrasil.gov.br/objetivo/objetivo?n=15">ODS 15</a> (i.e. vida terrestre).</p>
-<p>Realizamos uma primeira saída de campo que durou uma manhã inteira. Partimos do portal no início do Caminho Histórico e fomos até a entrada do trapiche do ponto 7. Localizamos e pegamos as coordenadas de todas as árvores frutíferas que encontramos ao longo do caminho. Anotamos também o nome popular das espécies e a fase ontogenética em que elas se encontravam. Foi muito divertido realizar este trabalho de campo.</p>
-<p>Entretanto, durante o processamento dos dados, nosso querido amigo Euler voltou a fazer parte do grande ciclo inevitável da natureza. Infelizmente acabamos perdendo os dados coletados junto com o parceiro, mas as memórias daquela manhã hão de permanecer frescas pela excelente experiência junto ao saudoso Euler Erse.</p>
+<p>A <strong>comunidade está estabelecida</strong> ao longo da margem
+oeste da Lagoa da Conceição. Foi reconhecida como comunidade tradicional
+de pescadores artesanais pela Lei Ordinária 9633/2014, da Prefeitura
+Municipal de Florianópolis. A comunidade da Costa da Lagoa é conhecida
+pela beleza cênica de suas paisagens, pela marcante cultura tradicional
+dos pescadores artesanais, benzedeiras e rendeiras e pelo
+não-convencional acesso à comunidade que se dá por meio de embarcações
+ou pelo caminho histórico em meio às belezas naturais da Mata
+Atlântica.</p>
+<p>O Caminho histórico foi tombado pelo Decreto Municipal 247/86. O
+caminho, também chamado de ‘trilha’, liga a comunidade da Costa da Lagoa
+ao Canto dos Araças, ambos às margens da Lagoa da Conceição. Nos últimos
+anos, com a crescente especulação imobiliária combinada com o aumento da
+atividade turística e com a carência de fiscalização, o caminho
+histórico vem se deteriorando rapidamente.</p>
+<p>No decorrer do Caminho Histórico da Costa da Lagoa, pode-se perceber
+ruinas e construções antigas, como o engenho do ponto 8 ou a famosa casa
+da Dona Loquinha. O percurso é dentro de uma bela mata cheia de espécies
+de plantas e de animais. Muitas aves podem ser vistas e/ou ouvidas como
+o <a
+href="https://www.wikiaves.com.br/wiki/pica-pau-de-cabeca-amarela">pica-pau-de-cabeça-amarela</a>,
+o <a
+href="https://www.wikiaves.com.br/wiki/aracua-escamoso">Aracuã-escamoso</a>,
+os <a
+href="https://www.wikiaves.com.br/wiki/tucano-de-bico-preto">tucanos</a>
+(de bico verde e preto), o <a
+href="https://www.wikiaves.com.br/wiki/sai-azul">saí-azul</a>, dentre
+outras muitas. Também encontramos o <a
+href="https://pt.wikipedia.org/wiki/Macaco-prego-preto">macaco-prego</a>
+que é um primata de porte médio, muito inteligente, cujo aumento
+populacional tem afetado negativamente os grupos humanos do entorno.
+Mais raramente, podem ser vistos <a
+href="https://pt.wikipedia.org/wiki/Graxaim-do-mato">graxains</a>, <a
+href="https://pt.wikipedia.org/wiki/Capivara">capivaras</a>, <a
+href="https://pt.wikipedia.org/wiki/Paca">pacas</a>, <a
+href="https://pt.wikipedia.org/wiki/Gamb%C3%A1-de-orelha-preta">gambás-de-orelha-preta</a>
+e os <a
+href="https://pt.wikipedia.org/wiki/Tamandu%C3%A1-mirim">tamanduás-mirim</a>.
+Existem também outros animais vertebrados bonitinhos como os <a
+href="https://pt.wikipedia.org/wiki/Teiú">lagartos teiú</a> e diversas
+serpentes.</p>
+<p><strong>A ideia de mapear as árvores frutiferas surgiu</strong> de
+uma conversa com o amigo Euler Erse sobre sustentabilidade e segurança
+alimentar. Durante um <em>brain storming</em> surgiu uma pergunta
+fundamental que foi moldando a ideia conforme avançávamos no exercício
+da dialética. A pergunta primeira foi <em>“quais as árvores frutíferas
+que alimentam o homem existem na região da Costa da Lagoa?”</em>.
+Fizemos uma lista de espécies que já vimos aqui ou que sabíamos que
+existiam na região. Então, nos propomos a fazer um levantamento das
+espécies para termos certeza de quais e quantas eram. Para aumentar a
+resolução e qualidade da informação, resolvemos georreferenciar e depois
+mapear os dados.</p>
+<p>A partir daí, pensamos na <strong>importância deste
+levantamento</strong> e percebemos que ele poderia servir de
+justificativa para a <a
+href="https://pt.wikipedia.org/wiki/Conserva%C3%A7%C3%A3o_da_natureza">conservação
+da natureza</a> na região. Este tipo de informação ainda é útil para
+grupos de coletores de sementes, estudantes, gestores ambientais e
+poderia ser base para monitoramento da biodiversidade e para recuperação
+de áreas degradadas. Além disso, torna disponível à população
+informações sobre os frutos que existem na região. Este projeto ainda
+está alinhado com o <a
+href="https://odsbrasil.gov.br/objetivo/objetivo?n=2">ODS 2</a>
+(i.e. fome zero e agricultura sustentável) e o <a
+href="https://odsbrasil.gov.br/objetivo/objetivo?n=15">ODS 15</a>
+(i.e. vida terrestre).</p>
+<p>Realizamos uma primeira saída de campo que durou uma manhã inteira.
+Partimos do portal no início do Caminho Histórico e fomos até a entrada
+do trapiche do ponto 7. Localizamos e pegamos as coordenadas de todas as
+árvores frutíferas que encontramos ao longo do caminho. Anotamos também
+o nome popular das espécies e a fase ontogenética em que elas se
+encontravam. Foi muito divertido realizar este trabalho de campo.</p>
+<p>Entretanto, durante o processamento dos dados, nosso querido amigo
+Euler voltou a fazer parte do grande ciclo inevitável da natureza.
+Infelizmente acabamos perdendo os dados coletados junto com o parceiro,
+mas as memórias daquela manhã hão de permanecer frescas pela excelente
+experiência junto ao saudoso Euler Erse.</p>
 </div>
 <div id="projeto-2.0---qual-a-novidade" class="section level2">
 <h2><strong>Projeto 2.0 - Qual a novidade?</strong></h2>
-<p>Motivados pela importância do projeto resolvemos resgatar a ideia <em>agregando mais um objetivo</em> que é <strong>envolver a comunidade</strong> da Costa da Lagoa neste mapeamento. Com isso, será possível trocar experiências e conhecimentos, além de reforçar os laços entre os moradores, gerar consciência de coletividade e pertencimento local.</p>
+<p>Motivados pela importância do projeto resolvemos resgatar a ideia
+<em>agregando mais um objetivo</em> que é <strong>envolver a
+comunidade</strong> da Costa da Lagoa neste mapeamento. Com isso, será
+possível trocar experiências e conhecimentos, além de reforçar os laços
+entre os moradores, gerar consciência de coletividade e pertencimento
+local.</p>
 <div>
 <img width="105%" src="nuvem_de_palavras.png"/>
 <p type="13">
-<em>Núvem de palavras dos frutos que encontramos. O tamanho corresponde à frequência de ocorrência dos frutos.</em>
+<em>Núvem de palavras dos frutos que encontramos. O tamanho corresponde
+à frequência de ocorrência dos frutos.</em>
 </p>
 </div>
 <footer>
@@ -324,7 +418,8 @@ Que sirva para alimentar quem tem fome e de motivação e fonte de sementes para
 Contatos:
 </h3>
 <div>
-<p><a href = "mailto:frutosdacosta@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a> <a href="https://instagram.com/frutos_da_costa" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a></p>
+<p><a href = "mailto:frutosdacosta@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+<a href="https://instagram.com/frutos_da_costa" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a></p>
 </div>
 </p>
 </footer>

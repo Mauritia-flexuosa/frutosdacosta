@@ -13,7 +13,7 @@
 
 <title>cronograma.knit</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -232,7 +240,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -255,6 +263,9 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="dados.html">Download</a>
+</li>
+<li>
+  <a href="manifestação.html">Governança local</a>
 </li>
 <li>
   <a href="macacos.html">macacos-prego</a>
@@ -292,7 +303,8 @@ $(document).ready(function () {
 Dia <b>Sem previsão para a próxima saída.</b>
 </p>
 <p>
-<b>Local:</b> No Caminho histórico da Costa da Lagoa, em frente ao trapiche do ponto 10. 😃
+<b>Local:</b> No Caminho histórico da Costa da Lagoa, em frente ao
+trapiche do ponto 10. 😃
 </p>
 <div>
 <p>
@@ -304,8 +316,8 @@ Dia <b>Sem previsão para a próxima saída.</b>
 Lembre de levar:
 </h3>
 <ul>
-<li><p>Água; 💧</p></li>
-<li><p>Boné ou chapeu; 🥳</p></li>
+<li><p>Água; 🥤</p></li>
+<li><p>Boné ou chapeu; 🎓</p></li>
 <li><p>Protetor solar; 🐚</p></li>
 <li><p><strong>Máscara</strong> e</p></li>
 <li><p>Bom humor. 🤡</p></li>
@@ -314,10 +326,11 @@ Lembre de levar:
 Sugestões de ítens que podem ser úteis:
 </h3>
 <ul>
-<li><p>Máquina fotográfica; 📸</p></li>
+<li><p>Máquina fotográfica; 📷</p></li>
 <li><p>Repelente de insetos; 🦟</p></li>
 <li><p>Um lanchinho esperto; 🍔 e</p></li>
-<li><p>Guias de identificação de espécies vegetais da Mata Atlântica ou de Floresta Estacional Semidecidual. 📖</p></li>
+<li><p>Guias de identificação de espécies vegetais da Mata Atlântica ou
+de Floresta Estacional Semidecidual. 📖</p></li>
 </ul>
 </div>
 <footer>
@@ -325,13 +338,18 @@ Sugestões de ítens que podem ser úteis:
 <h4>Atenção</h4>
 <p>
 <ul>
-<li>Ainda estamos com Risco potencial alto em Florianópolis segundo dados oficiais do <a href="https://covidometrofloripa.com.br/">Covidômetro Floripa</a>, portanto o uso de máscara é fundamental.
+<li>Ainda estamos com Risco potencial alto em Florianópolis segundo
+dados oficiais do <a
+href="https://covidometrofloripa.com.br/">Covidômetro Floripa</a>,
+portanto o uso de máscara é fundamental.
 </p></li>
 </ul>
 <div>
 <p>
 <ul>
-<li>Confira a <a href="https://app.powerbi.com/view?r=eyJrIjoiMzc5YmY0NmQtNTFkOS00ZDAxLWE2ZmQtOTZmZDkzM2M5NzAxIiwidCI6IjYyMTIxZmE1LWU3NTAtNDZlYS1hNjg0LTJhZmM2ZDIwYzYyYiJ9">situação do Covid na ilha</a>.
+<li>Confira a <a
+href="https://app.powerbi.com/view?r=eyJrIjoiMzc5YmY0NmQtNTFkOS00ZDAxLWE2ZmQtOTZmZDkzM2M5NzAxIiwidCI6IjYyMTIxZmE1LWU3NTAtNDZlYS1hNjg0LTJhZmM2ZDIwYzYyYiJ9">situação
+do Covid na ilha</a>.
 </p>
 </div>
 </footer></li>
