@@ -1,0 +1,46 @@
+# Mapa com as árvores georreferenciadas `r emo::ji("map")`
+
+A figura abaixo contém as informações georreferenciadas. **Estes resultados são preliminares**. Conforme alimentamos nosso banco de dados, nós atualizaremos este mapa. Note que o mapa é interativo e você pode dar zoom ou clicar nos pontos. Localize os pontos no mapa e clique em cima para ver as informações. As cores dos pontos indicam diferentes espécies.
+
+```{r echo=FALSE, include=FALSE}
+require(leaflet)
+require(tidyverse)
+library(leaflet.extras)
+library(htmlwidgets)
+```
+```{r echo=FALSE, fig.dim="100%"}
+frutas <- read.table("./dados_1.txt", h = T) %>% tibble %>%
+    mutate(popup_info = paste(nome_popular,"<br/>",                                               nome_científico,"<br/>",                                                 "Fase da vida:",
+                        fase_ontogenetica,"<br/>",                                               "Altitude:", srtm,"<br/>",                                               "Coordenadas: lat ", lat, ";"," lon ", lon,"<br/>",
+            "Observação:", obs, "<br/>"            ))
+
+pal <- colorFactor("magma", domain=frutas$nome_popular %>% factor)
+
+mapa <- leaflet() %>%
+  addProviderTiles("OpenStreetMap.Mapnik") %>%
+  addCircleMarkers(data = frutas, lat = frutas$lat, lng = frutas$lon, fillOpacity = 90,
+                   radius = ~1.45, popup = frutas$popup_info, color = pal(frutas$nome_popular))%>% 
+      
+      # add a map scalebar
+      addScaleBar(position = 'topright') %>%
+      
+      # add measurement tool
+      addMeasure(
+        primaryLengthUnit = "kilometers",
+        secondaryLengthUnit = 'miles', 
+        primaryAreaUnit = "hectares",
+        secondaryAreaUnit="acres", 
+        position = 'topleft')%>%
+      addControlGPS(
+        options = gpsOptions(
+          position = "topleft",
+          activate = TRUE, 
+          autoCenter = TRUE,
+          setView = TRUE))
+
+    activateGPS(mapa)
+
+
+```
+
+<span>Este mapa foi feito utilizando o pacote [leaflet](https://CRAN.R-project.org/package=leaflet) do [R](https://www.r-project.org).</span>
