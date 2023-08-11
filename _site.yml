@@ -14,7 +14,7 @@ navbar:
       href: dados.html 
     - text: "Governança local"
       href: manifestação.html
-    - text: "macacos-prego"
+    - text: "Macacos-prego"
       href: macacos.html 
     - text: "Organizadores"
       href: Organizadores.html
