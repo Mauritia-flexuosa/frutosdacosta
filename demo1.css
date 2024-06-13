@@ -1,0 +1,26 @@
+ .mainBars{
+    shape-rendering: auto;
+    fill-opacity: 1;
+    stroke-width: 0.5px;
+    stroke: rgb(0, 0, 0);
+    stroke-opacity: 0;
+  }
+    .subBars{
+    shape-rendering:crispEdges;
+    }
+    .edges{
+    stroke:none;
+    fill-opacity:0.3;
+    }
+    .label{
+    color:#000000;
+    }
+footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
