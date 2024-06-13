@@ -318,11 +318,7 @@
 "203" "Pitanga" "Eugenia_uniflora" "adulto" "10m" "2022-02-19" NA -48.46494 -27.56442
 "215" "Pitanga" "Eugenia_uniflora" "adulto" "10m" "2022-02-19" NA -48.46498 -27.56432
 "223" "Ingá" "Ingá_striata" "adulto" "9m" "2022-02-19" NA -48.46507 -27.56423
-<<<<<<< HEAD
 "233" "Ingá" "Ingá_striata" "juvenil" "9m" "2022-02-19" NA -48.46509 -27.56402
-=======
-"233" "Ingá" "Ingá_striata" "juvenil" "9m" "2022-02-19" NA -48.46509 -27.56462
->>>>>>> 82072bf8a1f2b4bb846e2cc9ab33c0e00c7de476
 "243" "Palmeira_1" "Arecaceae" "adulto" "10m" "2022-02-19" "dois_individuos" -48.46516 -27.56402
 "253" "Café" "coffea_sp" "adulto" "14m" "2022-02-19" NA -48.46513 -27.56404
 "263" "Ingá" "Ingá_striata" "juvenil" "2m" "2022-02-19" NA -48.46517 -27.56406
@@ -388,11 +384,7 @@
 "861" "Café" "coffea_sp" "adulto" "19m" "2022-02-19" NA -48.46473 -27.56208
 "871" "Nona" "Annona_neosalicifolia" "adulto" "18m" "2022-02-19" NA -48.46473 -27.562
 "881" "Limão" "Citrus_sp" "adulto" "18m" "2022-02-19" NA -48.46476 -27.56201
-<<<<<<< HEAD
 "891" "Pitanga" "Eugenia_uniflora" "adulto" "20m" "2022-02-19" NA -48.46077 -27.5697
-=======
-"891" "Pitanga" "Eugenia_uniflora" "adulto" "20m" "2022-02-19" NA -48.46477 -27.5697
->>>>>>> 82072bf8a1f2b4bb846e2cc9ab33c0e00c7de476
 "901" "Pitanga" "Eugenia_uniflora" "adulto" "20m" "2022-02-19" NA -48.46472 -27.56196
 "913" "Nona" "Annona_neosalicifolia" "adulto" "20m" "2022-02-19" NA -48.46476 -27.56192
 "921" "Pitanga" "Eugenia_uniflora" "adulto" "22m" "2022-02-19" NA -48.46473 -27.56188
@@ -454,11 +446,7 @@
 "1481" "Café" "coffea_sp" "adulto" "45m" "2022-03-05" NA -48.465 -27.56001
 "1491" "Nona" "Annona_neosalicifolia" "adulto" "40m" "2022-03-05" NA -48.46502 -27.56001
 "1501" "Café" "coffea_sp" "adulto" "38m" "2022-03-05" "sete_individuos" -48.465 -27.56005
-<<<<<<< HEAD
 "1513" "Nona" "Annona_neosalicifolia" "adulto" "38m" "2022-03-05" NA -48.465 -27.5608
-=======
-"1513" "Nona" "Annona_neosalicifolia" "adulto" "38m" "2022-03-05" NA -48.465 -27.5008
->>>>>>> 82072bf8a1f2b4bb846e2cc9ab33c0e00c7de476
 "1521" "Pitanga" "Eugenia_uniflora" "adulto" "36m" "2022-03-05" NA -48.46498 -27.56006
 "1531" "Café" "coffea_sp" "adulto" "36m" "2022-03-05" "quatro_individuos" -48.46497 -27.56006
 "1541" "Café" "coffea_sp" "adulto" "38m" "2022-03-05" NA -48.46492 -27.565995
